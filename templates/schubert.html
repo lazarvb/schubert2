@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Schubert</title>
+        <link
+            rel="icon"
+            href="{{ url_for('static', filename='assets/favicon.ico') }}"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <script src="{{ url_for('static', filename='run.js') }}"></script>
+    </head>
+    <body class="animate__animated animate__fadeIn">
+        <header>
+            <div class="header-box">
+                <h1>Try Schubert by yourself !</h1>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-btn">
+                    <img
+                        src="{{ url_for('static', filename='assets/node5.png') }}"
+                        alt="Menu"
+                    />
+                    <p>Menu</p>
+                </div>
+
+                <div class="menu-dropdown" id="menu-dropdown">
+                    <a
+                        href="{{ url_for('homepage') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node4.png') }}"
+                            alt="home"
+                        />
+                        Home Page
+                    </a>
+                    <a
+                        href="{{ url_for('schubert') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node3.png') }}"
+                            alt="blog"
+                        />
+                        Try ShuBERT
+                    </a>
+
+                    <a
+                        href="{{ url_for('otherprojects') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node2.png') }}"
+                            alt="home"
+                        />
+                        Other Projects
+                    </a>
+                    <a
+                        href="{{ url_for('about') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node1.png') }}"
+                            alt="home"
+                        />
+                        About
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-block">
+                <div class="text">
+                    <h2>Brief explanation and caution</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/ia_musique.png') }}"
+                        class="float-img"
+                        style="height: 250px"
+                    />
+                    <p>
+                        This following button allows you to test by yourself my
+                        model, named Schubert. You can upload a .mxl file
+                        (MusicXML is an XML-based file format for representing
+                        Western musical notation), which contains your musical
+                        score. Once uploaded, SchuBERT will analyze your
+                        composition and intelligently complete it by generating
+                        additional measures according to your preferences. You
+                        can specify the number of measures to be added, allowing
+                        for full flexibility in expanding your original
+                        composition. This tool is designed to assist composers,
+                        students, or anyone curious about exploring creative
+                        extensions of musical ideas.
+                    </p>
+                    <p>
+                        Feel free to experiment multiple times, even on the same
+                        piece of music, as the choice of each note is not
+                        entirely predetermined. Each run may produce slightly
+                        different outcomes, offering a unique variation on your
+                        original score. Additionally, your uploaded scores may
+                        be used anonymously to help further improve the model,
+                        contributing to better and more nuanced musical
+                        completions in future iterations.
+                    </p>
+                    <p>
+                        To view the files, if you don’t have a music notation
+                        application, you can use
+                        <a href="https://www.soundslice.com/musicxml-viewer/"
+                            >this link</a
+                        >, which redirects to Soundslice, a MusicXML viewer.
+                    </p>
+                </div>
+            </div>
+
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <h2>Upload your file</h2>
+            </div>
+
+            <div style="text-align: center">
+                <div id="error-message"></div>
+                <!-- "Choose a file" button -->
+                <form
+                    id="upload-form"
+                    action="/process"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    <button
+                        type="button"
+                        class="submit-btn"
+                        id="choose-file-btn"
+                    >
+                        Choose a .mxl file
+                    </button>
+                    <input
+                        type="file"
+                        name="file"
+                        id="file"
+                        style="display: none"
+                        required
+                    />
+                    <br />
+                    <!-- Slider -->
+                    <div
+                        id="slider-container"
+                        class="slider"
+                        style="display: none"
+                    >
+                        <label for="nbarline">
+                            Number of measures:
+                            <span id="nbarline-value">4</span>
+                        </label>
+                        <br />
+                        <input
+                            type="range"
+                            id="nbarline"
+                            name="nbarline"
+                            min="1"
+                            max="10"
+                            value="4"
+                            step="1"
+                            style="width: 300px"
+                            oninput="document.getElementById('nbarline-value').textContent = this.value"
+                        />
+                    </div>
+                    <!-- Submit button -->
+                    <button
+                        type="submit"
+                        id="submit-btn"
+                        class="submit-btn"
+                        style="display: none"
+                    >
+                        <span id="submit-text"></span>
+                    </button>
+                    <div
+                        id="loading-message"
+                        style="display: none; margin-top: 10px"
+                    >
+                        Processing<span id="dots"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <div class="header-box">
+                <p>
+                    © 2025 SchuBERT. Developed by Lazar van Berchem, PSL
+                    University.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

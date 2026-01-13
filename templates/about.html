@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About</title>
+        <link
+            rel="icon"
+            href="{{ url_for('static', filename='assets/favicon.ico') }}"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <script src="{{ url_for('static', filename='run.js') }}"></script>
+    </head>
+    <body class="animate__animated animate__fadeIn">
+        <header>
+            <div class="header-box">
+                <h1>About</h1>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-btn">
+                    <img
+                        src="{{ url_for('static', filename='assets/node5.png') }}"
+                        alt="Menu"
+                    />
+                    <p>Menu</p>
+                </div>
+
+                <div class="menu-dropdown" id="menu-dropdown">
+                    <a
+                        href="{{ url_for('homepage') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node4.png') }}"
+                            alt="home"
+                        />
+                        Home Page
+                    </a>
+                    <a
+                        href="{{ url_for('schubert') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node3.png') }}"
+                            alt="blog"
+                        />
+                        Try ShuBERT
+                    </a>
+
+                    <a
+                        href="{{ url_for('otherprojects') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node2.png') }}"
+                            alt="home"
+                        />
+                        Other Projects
+                    </a>
+                    <a
+                        href="{{ url_for('about') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node1.png') }}"
+                            alt="home"
+                        />
+                        About
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-block">
+                <div class="text">
+                    <h2>Lazar van Berchem</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/me.png') }}"
+                        class="float-img"
+                        style="height: 350px"
+                    />
+                    <p>
+                        I am currently a third-year undergraduate student in the
+                        CPES program
+                        <i>Data Science, Arts and Cultures</i>, jointly offered
+                        by the Lycée Louis-le-Grand and Université PSL. My
+                        studies cover both humanities — such as literature and
+                        art history — and sciences — such as mathematics and
+                        algorithmic. This interdisciplinary program allows me to
+                        apply quantitative tools to the analysis of cultural
+                        data, such as text analysis for example. You can find my
+                        curriculum vitæ at this
+                        <a href="assets/cv_fr.pdf" download="cv_fr.pdf">link</a
+                        >.
+                    </p>
+                    <p>
+                        If you have any questions, don't hesitate to send me an
+                        email at:
+                        <a href="mailto:lazar.vanberchem@gmail.com"
+                            >lazar.vanberchem@psl.eu</a
+                        >.
+                    </p>
+                </div>
+            </div>
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="text">
+                    <h2>References</h2>
+                    <p>
+                        This work was supervised by Valentin Thouzeau
+                        (Teacher-Researcher, PSL University,
+                        <a href="mailto:valentin.thouzeau@psl.eu"
+                            >valentin.thouzeau@psl.eu</a
+                        >) and Zoey Zhong (PhD, PSL University,
+                        <a href="mailto:ying.zhong@psl.eu">ying.zhong@psl.eu</a
+                        >).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="header-box">
+                <p>
+                    © 2025 SchuBERT. Developed by Lazar van Berchem, PSL
+                    University.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

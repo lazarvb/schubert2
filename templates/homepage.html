@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+        <link
+            rel="icon"
+            href="{{ url_for('static', filename='assets/favicon.ico') }}"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <script src="{{ url_for('static', filename='run.js') }}"></script>
+    </head>
+    <body class="animate__animated animate__fadeIn">
+        <header>
+            <div class="header-box">
+                <img
+                    src="{{ url_for('static', filename='assets/logo.png') }}"
+                    alt="SchuBERT logo"
+                    class="logo"
+                />
+            </div>
+
+            <nav class="menu">
+                <div class="menu-btn">
+                    <img
+                        src="{{ url_for('static', filename='assets/node5.png') }}"
+                        alt="Menu"
+                    />
+                    <p>Menu</p>
+                </div>
+
+                <div class="menu-dropdown" id="menu-dropdown">
+                    <a
+                        href="{{ url_for('homepage') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node4.png') }}"
+                            alt="home"
+                        />
+                        Home Page
+                    </a>
+                    <a
+                        href="{{ url_for('schubert') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node3.png') }}"
+                            alt="blog"
+                        />
+                        Try ShuBERT
+                    </a>
+
+                    <a
+                        href="{{ url_for('otherprojects') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node2.png') }}"
+                            alt="home"
+                        />
+                        Other Projects
+                    </a>
+                    <a
+                        href="{{ url_for('about') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node1.png') }}"
+                            alt="home"
+                        />
+                        About
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-block">
+                <div class="text">
+                    <h2>Objective</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/schubert.jpg') }}"
+                        alt="schubert"
+                        class="float-img"
+                    />
+                    <p>
+                        This project is about creating a computer program that
+                        can "guess" the next note in a melody, a bit like how
+                        some programs can predict the next word when you type on
+                        your phone. But instead of working with words, this
+                        program works with musical notes, using machine learning
+                        to learn patterns from existing music.
+                    </p>
+                    <p>
+                        The idea is to help musicians in two ways. First, by
+                        automatically suggesting the next note or measure when
+                        they are composing, giving them ideas when they are
+                        stuck or lacking inspiration; and second, by analyzing
+                        existing sheet music to see which parts are predictable
+                        or surprising, which can help understand what makes
+                        music enjoyable to listen to. This program can therefore
+                        be both an assistant for creating music and a tool for
+                        understanding how music works. A first version of this
+                        project is available
+                        <a href="{{ url_for('schubert') }}">here</a>.
+                    </p>
+                    <p>
+                        <i>Did you know? </i>The name SchuBERT is a clever play
+                        on words combining the famous Austrian composer Schubert
+                        and BERT, one of the earliest machine learning models
+                        designed to process text. Paradoxically, SchuBERT
+                        doesn't actually use a BERT-like architecture. It relies
+                        on a more modern structure known as Transformers. Still,
+                        the pun was just too good for the author to resist
+                        keeping!
+                    </p>
+                </div>
+            </div>
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="text">
+                    <h2>Data</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/hand.jpg') }}"
+                        alt="schubert"
+                        class="float-img"
+                    />
+                    <p>
+                        To teach our computer program to understand and create
+                        music using machine learning, we need lots of example
+                        songs. For this, we use a huge free collection of sheet
+                        music called the PDMX database, which has over 250 000
+                        pieces of music from the MuseScore platform.
+                    </p>
+                    <p>
+                        With a selected part of all these pieces, we convert
+                        each musical note, rhythm, and rest from these digital
+                        sheet music files, called .mxl files, into a sequence of
+                        "tokens," which are like words in a text but for music.
+                        This way, the computer can read and learn the patterns
+                        in the music, just like it would learn patterns in
+                        sentences when processing language. By turning the music
+                        into tokens, we can then train our machine learning
+                        model to predict the next note in a melody, helping it
+                        both to analyze existing music and to generate new,
+                        creative musical ideas.
+                    </p>
+                    <img
+                        src="{{ url_for('static', filename='assets/tokenisation.png') }}"
+                        alt="schubert"
+                        class="center-img"
+                    />
+                </div>
+            </div>
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="text">
+                    <h2>Training part</h2>
+                    <video
+                        src="{{ url_for('static', filename='assets/video_piano.mp4') }}"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        class="float-img"
+                    ></video>
+                    <p>
+                        Once we have our music transformed into sequences of
+                        tokens, the next step is to teach our computer program
+                        how to predict the next note using machine learning. To
+                        do this, we train the model on thousands of these
+                        sequences, showing it patterns and relationships between
+                        notes, just like teaching a student by giving many
+                        examples.
+                    </p>
+                    <p>
+                        The model uses a type of advanced AI called
+                        Transformers, which is very good at learning patterns
+                        over long sequences, such as a melody in a song. During
+                        training, the model tries to guess the next note for
+                        each part of the music and adjusts itself when it makes
+                        mistakes, gradually getting better and better. After the
+                        model has learned enough, we can use it to generate new
+                        music: given a few starting notes, it can suggest the
+                        next notes one by one, creating new melodies that sound
+                        coherent and musical. We can also test the model by
+                        comparing its predictions to real music and by listening
+                        to the melodies it generates, to make sure it is not
+                        just repeating the same note over and over, but actually
+                        creating interesting and harmonious sequences.
+                    </p>
+                </div>
+            </div>
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <h2>Other parts will be uploaded here later...</h2>
+            </div>
+        </div>
+
+        <footer>
+            <div class="header-box">
+                <p>
+                    © 2025 SchuBERT. Developed by Lazar van Berchem, PSL
+                    University.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

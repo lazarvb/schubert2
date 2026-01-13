@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Other Projects</title>
+        <link
+            rel="icon"
+            href="{{ url_for('static', filename='assets/favicon.ico') }}"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <script src="{{ url_for('static', filename='run.js') }}"></script>
+    </head>
+    <body class="animate__animated animate__fadeIn">
+        <header>
+            <div class="header-box">
+                <h1>Other Projects</h1>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-btn">
+                    <img
+                        src="{{ url_for('static', filename='assets/node5.png') }}"
+                        alt="Menu"
+                    />
+                    <p>Menu</p>
+                </div>
+
+                <div class="menu-dropdown" id="menu-dropdown">
+                    <a
+                        href="{{ url_for('homepage') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node4.png') }}"
+                            alt="home"
+                        />
+                        Home Page
+                    </a>
+                    <a
+                        href="{{ url_for('schubert') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node3.png') }}"
+                            alt="blog"
+                        />
+                        Try ShuBERT
+                    </a>
+
+                    <a
+                        href="{{ url_for('otherprojects') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node2.png') }}"
+                            alt="home"
+                        />
+                        Other Projects
+                    </a>
+                    <a
+                        href="{{ url_for('about') }}"
+                        data-hover="{{ url_for('static', filename='assets/node5.png') }}"
+                    >
+                        <img
+                            src="{{ url_for('static', filename='assets/node1.png') }}"
+                            alt="home"
+                        />
+                        About
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-block">
+                <div class="text">
+                    <h2>Internship</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/frieze.jpg') }}"
+                        class="float-img"
+                        style="height: 600px"
+                    />
+                    <p>
+                        During my second year of CPES, I completed a UROP
+                        internship in cognitive sciences under Olivier Morin,
+                        Research Director at CNRS at the Jean Nicod Institute.
+                        Titled "Beauty and Combinatoriality," this internship
+                        aimed to study the perception of beauty, particularly in
+                        repetitive patterns such as friezes, like the one shown
+                        on the right.
+                    </p>
+                    <p>
+                        I developed a rigorous method for annotating decorative
+                        friezes, allowing them to be classified according to
+                        their symmetries<sup>1</sup> and quantitatively compared
+                        across different cultures and periods. I applied this
+                        method to several visual corpora, including
+                        <em>Le Dictionnaire de l'Ornement</em> by Albert
+                        Racinet, as well as a database on Roman
+                        mosaics<sup>2</sup>, annotating several hundred friezes
+                        to extract several thousand motifs. These data will
+                        subsequently be used to test different theoretical
+                        models on human aesthetic preferences and their
+                        cognitive foundations.
+                    </p>
+                    <p>
+                        This internship allowed me to gain experience in the
+                        world of research and to learn how to apply the
+                        experimental method, notably through reading scientific
+                        articles and formulating hypotheses. I developed my
+                        critical thinking and deepened my knowledge in art
+                        history, mathematics, and cognitive sciences. I also
+                        acquired practical skills in using software tools and in
+                        annotating data, both manually and automatically.
+                        Additionally, I discovered document research,
+                        particularly at the library of the Quai Branly Museum.
+                        These experiences provided me with a more comprehensive
+                        understanding of research work and strengthened my
+                        ability to analyze and organize complex data, as well as
+                        my autonomy.
+                    </p>
+                    <div class="bibliography">
+                        <p>
+                            1. Washburn, D. K., & Crowe, D. W. (1988).
+                            <em
+                                >Symmetries of culture: Theory and practice of
+                                plane pattern analysis.</em
+                            >
+                            University of Washington Press.
+                        </p>
+                        <p>
+                            2. Balmelle, Catherine, and Richard Prudhomme.
+                            <em
+                                >Le décor géométrique de la mosaïque romaine.
+                                Vol. 1. Répertoire graphique et descriptif des
+                                compositions linéaires et isotropes.</em
+                            >
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="sheet">
+                <div class="scroll-separator">
+                    <div class="scroll-track"></div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="text">
+                    <h2>Other projects will be uploaded here later...</h2>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="header-box">
+                <p>
+                    © 2025 SchuBERT. Developed by Lazar van Berchem, PSL
+                    University.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
