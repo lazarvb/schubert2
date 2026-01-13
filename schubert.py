@@ -20,7 +20,7 @@ batch_size = 256
 
 def load_model(n_part):
     # Construire le chemin correctement
-    file_path = os.path.join("model", f"results_opt_{n_part}p.csv")
+    file_path = os.path.join("models", f"results_opt_{n_part}p.csv")
     
     # Lire le CSV
     df = pd.read_csv(file_path, sep=';')
@@ -175,3 +175,4 @@ def write_music_sheet(generated_tokens, npart, key_score, filepath):
     score.write('mxl', fp=output_path)
 
     print(f"File written to: {output_path}")
+
