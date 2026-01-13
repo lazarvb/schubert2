@@ -20,18 +20,22 @@ batch_size = 256
 
 def load_model(n_part):
     # Construire le chemin correctement
-    file_path = os.path.join("models", f"results_opt_{n_part}p.csv")
-    
+    file_path = os.path.join("model", f"results_opt_{n_part}p.csv")
+
     # Lire le CSV
     df = pd.read_csv(file_path, sep=';')
 
+    print("opt bon")
+    
     # Select the row with the highest test accuracy
     best_row = df.loc[df['test_accuracy'].idxmax()]
 
+    checkpoint_path = os.path.join("model", f"music_transformer_{n_part}p.pth")
 
-    # Load the checkpoint file
-    checkpoint = torch.load(fr"model\music_transformer_{n_part}p.pth", map_location="cpu")
+    # Charger le modèle
+    checkpoint = torch.load(checkpoint_path, map_location="cpu")
 
+    print("modèle bon")
     # Access the vocabulary
     token_to_id = checkpoint["token_to_id"]
     id_to_token = checkpoint["id_to_token"]
@@ -175,4 +179,5 @@ def write_music_sheet(generated_tokens, npart, key_score, filepath):
     score.write('mxl', fp=output_path)
 
     print(f"File written to: {output_path}")
+
 
