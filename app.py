@@ -118,6 +118,7 @@ def modify_file_with_schubert(filepath, nbarline=6, k=8):
         try:
             # Generate new music tokens using the model
             generated_tokens = generation(tokens, nbarline, model, token_to_id, id_to_token, k)
+            print("test 5 : généré")
             
             # Write the generated tokens back into a MusicXML file
             write_music_sheet(generated_tokens, nhand, key_score, output_path)
@@ -133,4 +134,5 @@ def modify_file_with_schubert(filepath, nbarline=6, k=8):
 
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
+
     app.run(host="0.0.0.0", debug=True)
