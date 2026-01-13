@@ -131,7 +131,7 @@ def generation(tokens, n_barline, model, token_to_id, id_to_token, k):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
     model.eval()
-    
+    print("test 7 : modèle ok")
     seed = [token_to_id[tok] for tok in tokens]  # Convert seed tokens to IDs
     
     while i < n_barline:
@@ -139,17 +139,19 @@ def generation(tokens, n_barline, model, token_to_id, id_to_token, k):
         x = torch.tensor([seed[-seq_len:]]).to(device)
         with torch.no_grad():
             logits = model(x)[0, -1]  # Predictions for the last time step
-
+        print("test 8 : tout est prêt")
+        
         # Apply top-k sampling instead of argmax
         next_token_id = sample_top_k(logits, k)
         seed.append(next_token_id)  # Add the sampled token ID
-
+        print("print 9 : un token de plus")
+        
         # If the last token is a barline, filter the sequence
         if [id_to_token[i] for i in seed][-1] == 'barline':
             filtered_tokens = filter_tokens([id_to_token[i] for i in seed])
             seed = [token_to_id[t] for t in filtered_tokens]
             i += 1
-
+    print("test 10 : fini")
     # Convert token IDs back to readable tokens
     generated_tokens = [id_to_token[i] for i in seed]
     #print(len(generated_tokens))
@@ -183,6 +185,7 @@ def write_music_sheet(generated_tokens, npart, key_score, filepath):
     score.write('mxl', fp=output_path)
 
     print(f"File written to: {output_path}")
+
 
 
 
