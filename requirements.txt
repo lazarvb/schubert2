@@ -1,0 +1,6 @@
+Flask
+music21
+pandas
+tqdm
+numpy
+torch
