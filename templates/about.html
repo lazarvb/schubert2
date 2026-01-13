@@ -81,7 +81,7 @@
                 <div class="text">
                     <h2>Lazar van Berchem</h2>
                     <img
-                        src="{{ url_for('static', filename='assets/me.png') }}"
+                        src="{{ url_for('static', filename='assets/me.PNG') }}"
                         class="float-img"
                         style="height: 350px"
                     />
@@ -96,8 +96,7 @@
                         apply quantitative tools to the analysis of cultural
                         data, such as text analysis for example. You can find my
                         curriculum vitæ at this
-                        <a href="assets/cv_fr.pdf" download="cv_fr.pdf">link</a
-                        >.
+                        <a href="{{ url_for('static', filename='assets/cv_fr.pdf') }}" download="cv_fr.pdf">link</a>.
                     </p>
                     <p>
                         If you have any questions, don't hesitate to send me an
@@ -138,3 +137,4 @@
         </footer>
     </body>
 </html>
+
