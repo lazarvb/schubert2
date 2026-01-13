@@ -127,7 +127,11 @@ def sample_top_k(logits, k):
 
 def generation(tokens, n_barline, model, token_to_id, id_to_token, k):
     i = 0
-    device = torch.device("cpu")
+    print("test 6 : dans la fonction génération")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+    model.eval()
+    
     seed = [token_to_id[tok] for tok in tokens]  # Convert seed tokens to IDs
     
     while i < n_barline:
@@ -179,5 +183,6 @@ def write_music_sheet(generated_tokens, npart, key_score, filepath):
     score.write('mxl', fp=output_path)
 
     print(f"File written to: {output_path}")
+
 
 
