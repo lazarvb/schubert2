@@ -133,10 +133,12 @@
             <div class="content-block">
                 <div class="text">
                     <h2>Data</h2>
+
                     <img
-                        src="{{ url_for('static', filename='assets/hand.jpg') }}"
+                        src="{{ url_for('static', filename='assets/tokenisation.png') }}"
                         alt="schubert"
                         class="float-img"
+                        style="height: 220px"
                     />
                     <p>
                         To teach our computer program to understand and create
@@ -158,11 +160,6 @@
                         both to analyze existing music and to generate new,
                         creative musical ideas.
                     </p>
-                    <img
-                        src="{{ url_for('static', filename='assets/tokenisation.png') }}"
-                        alt="schubert"
-                        class="center-img"
-                    />
                 </div>
             </div>
             <div class="sheet">
@@ -214,10 +211,41 @@
                 </div>
             </div>
             <div class="content-block">
-                <h2>Other parts will be uploaded here later...</h2>
+                <div class="text">
+                    <h2>70.02 %</h2>
+                    <img
+                        src="{{ url_for('static', filename='assets/hand.jpg') }}"
+                        alt="schubert"
+                        class="float-img"
+                    />
+                    <p>
+                        One of the most significant results of the project so
+                        far is the model’s accuracy, which now reaches 70.02%.
+                        This value represents the proportion of times SchuBERT
+                        correctly predicts the next musical token in a sequence.
+                    </p>
+                    <p>
+                        This performance is a major improvement compared to the
+                        MVP version, where the accuracy was limited to 62.63%.
+                        The increase was achieved by training the model on a
+                        much larger dataset: approximately 10,000 musical
+                        scores, corresponding to about 2.6 million tokens,
+                        instead of the 1,000 scores used initially.
+                    </p>
+                    <p>
+                        Achieving such an accuracy is particularly encouraging
+                        given the complexity of the task. SchuBERT must choose
+                        the correct next token among hundreds of possible
+                        classes, which makes prediction far more challenging
+                        than in many standard classification problems. These
+                        results show that scaling the data and carefully
+                        constraining the model size can significantly improve
+                        musical prediction without necessarily relying on
+                        heavier or more complex architectures.
+                    </p>
+                </div>
             </div>
         </div>
-
         <footer>
             <div class="header-box">
                 <p>
