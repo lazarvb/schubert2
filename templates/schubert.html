@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -125,7 +125,26 @@
                 </div>
             </div>
             <div class="content-block">
-                <h2>Upload your file</h2>
+                <div class="text">
+                    <h2>Upload your file</h2>
+                    <p>
+                        If you want, here are two .mxl files to try,
+
+                        <a
+                            href="{{ url_for('static', filename='assets/fly_me_to_the_moon.mxl') }}"
+                            download
+                        >
+                            Fly Me To The Moon (Jazz standard)</a
+                        >
+                        or
+                        <a
+                            href="{{ url_for('static', filename='assets/clairdelune.mxl') }}"
+                            download
+                        >
+                            Claire de Lune (Claude Debussy)</a
+                        >.
+                    </p>
+                </div>
             </div>
 
             <div style="text-align: center">
@@ -172,7 +191,11 @@
                             value="4"
                             step="1"
                             style="width: 300px"
-                            oninput="document.getElementById('nbarline-value').textContent = this.value"
+                            oninput="
+                                document.getElementById(
+                                    'nbarline-value',
+                                ).textContent = this.value
+                            "
                         />
                     </div>
                     <!-- Submit button -->
