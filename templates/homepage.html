@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -144,8 +144,10 @@
                         To teach our computer program to understand and create
                         music using machine learning, we need lots of example
                         songs. For this, we use a huge free collection of sheet
-                        music called the PDMX database, which has over 250 000
-                        pieces of music from the MuseScore platform.
+                        music called the PDMX database<sup id="ref1"
+                            ><a href="#fn1">1</a></sup
+                        >, which has over 250 000 pieces of music from the
+                        MuseScore platform.
                     </p>
                     <p>
                         With a selected part of all these pieces, we convert
@@ -189,19 +191,35 @@
                     </p>
                     <p>
                         The model uses a type of advanced AI called
-                        Transformers, which is very good at learning patterns
-                        over long sequences, such as a melody in a song. During
-                        training, the model tries to guess the next note for
-                        each part of the music and adjusts itself when it makes
-                        mistakes, gradually getting better and better. After the
-                        model has learned enough, we can use it to generate new
-                        music: given a few starting notes, it can suggest the
-                        next notes one by one, creating new melodies that sound
-                        coherent and musical. We can also test the model by
-                        comparing its predictions to real music and by listening
-                        to the melodies it generates, to make sure it is not
-                        just repeating the same note over and over, but actually
-                        creating interesting and harmonious sequences.
+                        Transformers<sup id="ref2"><a href="#fn2">2</a></sup
+                        >, which is very good at learning patterns over long
+                        sequences, such as a melody in a song. I created this
+                        model using the pytorch documentation<sup id="ref3"
+                            ><a href="#fn3">3</a></sup
+                        >, but also thanks to a video from StatQuest<sup
+                            id="ref4"
+                            ><a href="#fn4">4</a></sup
+                        >. During training, the model tries to guess the next
+                        note for each part of the music and adjusts itself when
+                        it makes mistakes, gradually getting better and better.
+                        After the model has learned enough, we can use it to
+                        generate new music: given a few starting notes, it can
+                        suggest the next notes one by one, creating new melodies
+                        that sound coherent and musical. We can also test the
+                        model by comparing its predictions to real music and by
+                        listening to the melodies it generates, to make sure it
+                        is not just repeating the same note over and over, but
+                        actually creating interesting and harmonious sequences.
+                    </p>
+                    <p>
+                        To improve performance, we optimized the model’s
+                        hyperparameters—like learning rate, number of layers,
+                        and the size of the embedding vectors—using a random
+                        search approach<sup id="ref5"><a href="#fn5">5</a></sup
+                        >. By testing many random combinations and monitoring
+                        validation accuracy, we found settings that helped the
+                        model learn musical patterns more efficiently and avoid
+                        overfitting.
                     </p>
                 </div>
             </div>
@@ -218,6 +236,19 @@
                         alt="schubert"
                         class="float-img"
                     />
+                    <p>
+                        One of the most significant results of the project so
+                        far is the model’s accuracy. On the training set,
+                        SchuBERT achieves 73.81% accuracy, while on the
+                        validation and test sets it reaches about 70.02%<sup
+                            id="ref6"
+                            ><a href="#fn6">6</a></sup
+                        >. This value represents the proportion of times the
+                        model correctly predicts the next musical token in a
+                        sequence, showing that it generalizes well beyond the
+                        data it was trained on.
+                    </p>
+
                     <p>
                         One of the most significant results of the project so
                         far is the model’s accuracy, which now reaches 70.02%.
@@ -245,6 +276,66 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="content">
+            <hr />
+            <ol>
+                <li id="fn1">
+                    Long, P., Novack, Z., Berg-Kirkpatrick, T., & McAuley, J.
+                    (2025, April). PDMX: A Large-Scale Public Domain MusicXML
+                    Dataset for Symbolic Music Processing. In ICASSP 2025-2025
+                    IEEE International Conference on Acoustics, Speech and
+                    Signal Processing (ICASSP) (pp. 1-5). IEEE.
+                    <a href="#ref1" title="Go back">↩</a>
+                </li>
+                <li id="fn2">
+                    Vaswani, A., Shazeer, N., et al., (2017). Attention is all
+                    you need. Advances in neural information processing systems,
+                    30.
+                    <a href="#ref2" title="Go back">↩</a>
+                </li>
+                <li id="fn3">
+                    PyTorch documentation,
+                    <a
+                        href="https://docs.pytorch.org/docs/stable/index.html"
+                        target="_blank"
+                    >
+                        https://docs.pytorch.org/docs/stable/index.html
+                    </a>
+                    (accessed on 01/01/2026)
+                    <a href="#ref3" title="Go back">↩</a>
+                </li>
+                <li id="fn4">
+                    Statquest, Coding a ChatGPT Like Transformer From Scratch in
+                    PyTorch,
+                    <a
+                        href="https://www.youtube.com/watch?v=C9QSpl5nmrY"
+                        target="_blank"
+                    >
+                        https://www.youtube.com/watch?v=C9QSpl5nmrY
+                    </a>
+                    (accessed on 01/01/2026)
+                    <a href="#ref4" title="Go back">↩</a>
+                </li>
+
+                <li id="fn5">
+                    Bergstra, J., & Bengio, Y. (2012). Random search for
+                    hyper-parameter optimization. The journal of machine
+                    learning research, 13(1), 281-305.
+                    <a href="#ref5" title="Go back">↩</a>
+                </li>
+                <li id="fn6">
+                    Accuracy results per dataset:
+                    <pre>
+Set     Loss        Accuracy (%)
+train   0.864243    73.814200
+val     0.997157    70.020117
+test    0.998782    70.023848
+    </pre
+                    >
+                    <a href="#ref6" title="Go back">↩</a>
+                </li>
+            </ol>
         </div>
         <footer>
             <div class="header-box">
